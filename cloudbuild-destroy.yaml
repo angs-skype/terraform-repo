@@ -1,0 +1,24 @@
+steps:
+
+# Init
+- name: hashicorp/terraform:1.6
+  entrypoint: sh
+  args:
+    - "-c"
+    - |
+      terraform init
+
+# Destroy
+- name: hashicorp/terraform:1.6
+  entrypoint: sh
+  args:
+    - "-c"
+    - |
+      terraform destroy \
+        -var="project_id=$PROJECT_ID" \
+        -var="region=us-central1" \
+        -var="zone=us-central1-a" \
+        -auto-approve
+
+options:
+  logging: CLOUD_LOGGING_ONLY
