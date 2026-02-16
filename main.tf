@@ -2,7 +2,7 @@ resource "google_compute_instance" "vm_instance" {
   count        = 2
   name         = "devops-vm-${count.index}"
   machine_type = "e2-micro"
-  zone         = us-central1-a
+  zone         = "us-central1-a"
 
 
   boot_disk {
