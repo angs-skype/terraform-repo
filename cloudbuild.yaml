@@ -1,0 +1,25 @@
+steps:
+
+# Step 1 - Terraform Init
+- name: hashicorp/terraform:1.6
+  entrypoint: sh
+  args:
+    - "-c"
+    - |
+      terraform init
+
+# Step 2 - Terraform Plan
+- name: hashicorp/terraform:1.6
+  entrypoint: sh
+  args:
+    - "-c"
+    - |
+      terraform plan -out=tfplan
+
+# Step 3 - Terraform Apply
+- name: hashicorp/terraform:1.6
+  entrypoint: sh
+  args:
+    - "-c"
+    - |
+      terraform apply -auto-approve tfplan
