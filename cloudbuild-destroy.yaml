@@ -8,7 +8,7 @@ steps:
     - |
       terraform init
 
-# Destroy   ttttttt
+# Destroy   
 - name: hashicorp/terraform:1.6
   entrypoint: sh
   args:
